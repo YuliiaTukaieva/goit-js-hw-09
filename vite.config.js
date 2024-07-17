@@ -27,13 +27,13 @@ export default defineConfig(({ command }) => {
       outDir: '../dist',
     },
     plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
-  //   optimizeDeps: {
-  //     esbuildOptions: {
-  //         // Node.js global to browser globalThis
-  //         define: {
-  //             global: 'globalThis',
-  //         },
-  //     },
-  // },
+    optimizeDeps: {
+      esbuildOptions: {
+          // Node.js global to browser globalThis
+          define: {
+              global: 'globalThis',
+          },
+      },
+  },
   };
 });
