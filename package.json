@@ -7,6 +7,8 @@
     "dev": "vite",
     "build-local": "vite build --base=/vanilla-app-template/",
     "build": "vite build --base=/goit-js-hw-09/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
   "devDependencies": {
