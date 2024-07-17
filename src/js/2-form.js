@@ -1,3 +1,5 @@
+const STORAGE_KEY = "feedback-form-state";
+
 let formData = {
     email: "",
     message: ""
@@ -20,7 +22,7 @@ form.addEventListener("input", handleFormInput);
 
 function handleFormSubmit(event) {
     event.preventDefault();
-    localStorage.removeItem('feedback-form-state');
+    localStorage.removeItem(STORAGE_KEY);
     event.currentTarget.reset();
     
     if (!formData.email || !formData.message) {
@@ -36,7 +38,7 @@ function handleFormInput(event) {
 //   let savedFeedbackData = {};
 
   try {
-    formData = JSON.parse(localStorage.getItem('feedback-form-state'));
+    formData = JSON.parse(localStorage.getItem(STORAGE_KEY));
   } catch (err) {
     console.log(err);
     return;
@@ -51,7 +53,7 @@ function handleFormInput(event) {
   }
 
   try {
-    localStorage.setItem('feedback-form-state', JSON.stringify(formData));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
   } catch (err) {
     console.log(err);
     return;
@@ -62,7 +64,7 @@ function populateForm() {
 //   let savedFeedbackData = {};
 
   try {
-    formData = JSON.parse(localStorage.getItem('feedback-form-state'));
+    formData = JSON.parse(localStorage.getItem(STORAGE_KEY));
   } catch (err) {
     console.log(err);
     return;
