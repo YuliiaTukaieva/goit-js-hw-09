@@ -22,13 +22,15 @@ form.addEventListener("input", handleFormInput);
 
 function handleFormSubmit(event) {
     event.preventDefault();
-    localStorage.removeItem(STORAGE_KEY);
-    event.currentTarget.reset();
-    
+   
     if (!formData.email || !formData.message) {
       alert('Fill please all fields');
       return;
     }
+
+    localStorage.removeItem(STORAGE_KEY);
+    event.currentTarget.reset();
+    console.log(formData);
 }
 
 function handleFormInput(event) {
